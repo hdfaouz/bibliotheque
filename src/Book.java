@@ -1,23 +1,30 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Book {
     String titre;
     String auteur;
-    double isdn;
-    String desponibilite;
+   String isdn;
+    boolean desponibilite;
+    ArrayList<Book>books = new ArrayList<Book>();
 
-public void Ajouter() {
+void Ajouter() {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("entrer le titre : ");
-    String titre = scanner.next();
-    System.out.println("entrer le nom de l'auteur : ");
-    String auteur = scanner.next();
-    System.out.println("entrer prix :");
-    double isdn = scanner.nextDouble();
-    System.out.println("entrer la disponibilité :");
-    String desponibilite = scanner.next();
+    System.out.print("entrer le titre : ");
+     titre = scanner.nextLine();
+    System.out.print("entrer le nom de l'auteur : ");
+     auteur = scanner.nextLine();
+    System.out.print("entrer isdn :");
+     isdn = scanner.nextLine();
+    System.out.print("entrer la disponibilité  :");
+    desponibilite = scanner.nextBoolean();
 }
-
+public void Afficher(){
+    System.out.println("le titre " +titre);
+    System.out.println("l'auter " +auteur);
+    System.out.println("isdn " +isdn);
+    System.out.println("desponibilite " +desponibilite);
+}
 
 
 
