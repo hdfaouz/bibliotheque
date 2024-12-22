@@ -21,7 +21,7 @@ public class Main {
                     book.ajouter();
                     break;
                 case 2:
-                    book.afficher();
+                    book.afficherts();
                     break;
                 case 3:
                     book.recherche();

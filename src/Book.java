@@ -72,7 +72,7 @@ public class Book {
         System.out.println("entrer isbn :");
          String isbn = scanner.nextLine();
          setIsbn(isbn);
-        System.out.println("entrer la disponibilité (oui/non)  :");
+        System.out.println("entrer la disponibilité (true/false)  :");
         boolean desponibilite = scanner.nextBoolean();
         setDesponibilite(desponibilite);
         books.add(new Book(titre, auteur, isbn, desponibilite));
@@ -98,21 +98,25 @@ public class Book {
         String isbn=scanner.nextLine();
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
-                System.out.println(book);
+                System.out.println("livre trouvé");
+                book.afficher();
                 return book;
-            } else {
-                System.out.println("isbn non trouvé");
             }
         }
+        System.out.println("isbn non trouvé");
         return null;
         }
+
     public void supprimer() {
 
         Book book = recherche();
         if (book != null){
             books.remove(book);
+            System.out.println("livre supprimé avec succés ");
         }
-        else System.out.println("book non trouvé");
+        else {
+            System.out.println("book non trouvé");
+        }
 
     }
     public void modifier(){
@@ -130,16 +134,19 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book : {" +
-                "  titre='" + titre +
-                '\'' +
-                ", auteur='" + auteur +
-                '\'' +
-                ", isbn='" + isbn +
-                '\'' +
-                ", desponibilite=" + desponibilite +
-                '}';
-    }
+
+            return "Book : {" +
+                    "  titre='" + titre +
+                    '\'' +
+                    ", auteur='" + auteur +
+                    '\'' +
+                    ", isbn='" + isbn +
+                    '\'' +
+                    ", desponibilite=" + desponibilite +
+                    '}';
+        }
+
+
 }
 
 
