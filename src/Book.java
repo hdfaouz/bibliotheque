@@ -122,13 +122,34 @@ public class Book {
     public void modifier(){
 
         Book book = recherche();
-        String titre = scanner.nextLine();
-        String auteur =scanner.nextLine();
-        String isbn = scanner.nextLine();
+        if(book!=null){
+            System.out.println("entrer le nouveau titre : ");
+            String titre = scanner.nextLine();
 
-        book.setTitre(titre);
-        book.setAuteur(auteur);
-        book.setIsbn(isbn);
+            System.out.println("entrer le nouvel auteur :");
+            String auteur =scanner.nextLine();
+
+            System.out.println("entre le nouvel isbn :");
+            String isbn = scanner.nextLine();
+
+            System.out.println("entrer la nouvelle disponibilite (true/false");
+            boolean desponibilite =scanner.nextBoolean();
+            scanner.nextLine();
+
+            book.setTitre(titre);
+            book.setAuteur(auteur);
+            book.setIsbn(isbn);
+            book.setDesponibilite(desponibilite);
+
+            System.out.println("livre modifier avec succés.");
+        }
+        else {
+            System.out.println("modification impossible!!");
+        }
+
+
+
+
 
     }
 
