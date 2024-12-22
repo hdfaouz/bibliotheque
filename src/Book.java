@@ -13,11 +13,11 @@ public class Book {
     ArrayList<Book> books = new ArrayList<Book>();
 
     //Constructeur
-    public Book(String titre, String auteur, String isbn, boolean disonibilte) {
+    public Book(String titre, String auteur, String isbn, boolean desponibilte) {
         this.titre = titre;
         this.auteur = auteur;
         this.isbn = isbn;
-        this.desponibilite = disonibilte;
+        this.desponibilite = desponibilte;
     }
 
     Book() {
@@ -63,15 +63,20 @@ public class Book {
     // CRUD functions
     void ajouter() {
 
-        System.out.print("entrer le titre : ");
-        titre = scanner.nextLine();
-        System.out.print("entrer le nom de l'auteur : ");
-        auteur = scanner.nextLine();
-        System.out.print("entrer isbn :");
-        isbn = scanner.nextLine();
-        System.out.print("entrer la disponibilité oui  :");
-        desponibilite = scanner.nextBoolean();
+        System.out.println("entrer le titre : ");
+        String titre = scanner.nextLine();
+        setTitre(titre);
+        System.out.println("entrer le nom de l'auteur : ");
+        String auteur = scanner.nextLine();
+        setAuteur(auteur);
+        System.out.println("entrer isbn :");
+         String isbn = scanner.nextLine();
+         setIsbn(isbn);
+        System.out.println("entrer la disponibilité (oui/non)  :");
+        boolean desponibilite = scanner.nextBoolean();
+        setDesponibilite(desponibilite);
         books.add(new Book(titre, auteur, isbn, desponibilite));
+        scanner.nextLine();
     }
 
     public void afficher() {
@@ -93,13 +98,13 @@ public class Book {
         String isbn=scanner.nextLine();
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
+                System.out.println(book);
                 return book;
             } else {
                 System.out.println("isbn non trouvé");
             }
         }
         return null;
-
         }
     public void supprimer() {
 
@@ -109,6 +114,31 @@ public class Book {
         }
         else System.out.println("book non trouvé");
 
+    }
+    public void modifier(){
+
+        Book book = recherche();
+        String titre = scanner.nextLine();
+        String auteur =scanner.nextLine();
+        String isbn = scanner.nextLine();
+
+        book.setTitre(titre);
+        book.setAuteur(auteur);
+        book.setIsbn(isbn);
+
+    }
+
+    @Override
+    public String toString() {
+        return "Book : {" +
+                "  titre='" + titre +
+                '\'' +
+                ", auteur='" + auteur +
+                '\'' +
+                ", isbn='" + isbn +
+                '\'' +
+                ", desponibilite=" + desponibilite +
+                '}';
     }
 }
 
